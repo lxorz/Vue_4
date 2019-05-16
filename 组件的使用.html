@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+
+    var Vheader ={
+        template:`
+            <header class='head'>
+                我是头部组件
+            </header>
+        `
+    }
+
+    //1.声明入口组件
+    var Vmain = {
+        template: `
+            <div class='main'>
+                lx
+                <Vheader />
+            </div>`,
+        components:{
+            Vheader
+        }
+    }
+
+    new Vue({
+        el: '#app',
+        template:`<Vmain />`,
+        data:{
+
+        },
+        components:{
+            //挂载子组件
+            Vmain : Vmain
+        }
+    });
+</script>
+
+</body>
+</html>

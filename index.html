@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title>first test vue</title>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app-1">
+	<h3>{{ msg }}</h3>
+	<a v-bind:href='href'>baidu</a>
+</div>
+
+
+
+<script type="text/javascript">
+	new Vue({
+		el: '#app-1',
+		data:{
+			msg:'hello Vue',
+			href:"http://www.baidu.com"
+		}
+	});
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+            overflow: hidden;
+            width: 400px;
+        }
+        
+        ul li{
+            float: left;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: purple;
+        }
+
+        ul li.active{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div id="slider">
+    <img v-bind:src="currentImgSrc" alt="">
+    <ul>
+        <li v-on:click="clickHandler(index)" v-bind:class="{active:currentIndex==index}" v-for="(item, index) in imgArr">
+            {{ index +1 }}
+        </li>
+    </ul>
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+
+<script>
+    var imgArr = [
+        {id:1,imgSrc:'./a1.jpg'},
+        {id:2,imgSrc:'./a2.jpg'},
+        {id:3,imgSrc:'./a3.jpg'},
+        {id:4,imgSrc:'./a4.jpg'},
+    ]
+    new Vue({
+        el:'#slider',
+        template:'',
+        data:function () {
+            return {
+                imgArr : imgArr,
+                currentIndex:0,
+                currentImgSrc:'./a1.jpg'
+            }
+        },
+        methods:{
+            clickHandler(index){
+                this.currentIndex= index;
+                this.currentImgSrc = this.imgArr[index].imgSrc;
+            }
+        }
+    });
+
+
+</script>
+
+
+</body>
+</html>

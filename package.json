@@ -1,0 +1,14 @@
+{
+  "name": "01-vue-project",
+  "version": "1.0.0",
+  "description": "first test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lx",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
+}
