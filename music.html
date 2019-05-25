@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        ul li {
+            margin: 30px 20px;
+            padding: 10px;
+        }
+        ul li.active{
+            background-color: #20FFFF;
+        }
+    </style>
+</head>
+
+<body>
+<div id="music">
+    <audio :src="currentSrc" controls autoplay></audio>
+    <ul>
+        <li v-for = '(item,index) in musics' @click = 'clickHandler(index)' :class = '{active:currentIndex == index}'>
+            <h2>{{item.id}}--歌曲为:{{item.name}}</h2>
+            <p>歌手:{{item.author}}</p>
+        </li>
+
+    </ul>
+</div>
+<script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript">
+    var musicData = [{
+            id: 1,
+            name: 'Rolling In The Deep',
+            author: 'Adele',
+            songSrc: './static/Adele - Rolling In The Deep.mp3'
+        },
+        {
+            id: 2,
+            name: 'DOAR CU TINE',
+            author: 'Activ',
+            songSrc: './static/Activ - DOAR CU TINE.mp3'
+        },
+        {
+            id: 3,
+            name: 'Trust Nobody',
+            author: 'Cashmere Cat',
+            songSrc: './static/Cashmere Cat,Selena Gomez,Tory Lanez - Trust Nobody.mp3'
+        },
+        {
+            id: 4,
+            name: 'Booty Music',
+            author: 'Deep Side',
+            songSrc: './static/Deep Side - Booty Music.mp3'
+        },
+        {
+            id: 5,
+            name: '奇迹',
+            author: '邓紫棋',
+            songSrc: './static/G.E.M.邓紫棋 - 奇迹.mp3'
+        },
+        {
+            id: 6,
+            name: 'Wake',
+            author: 'Hillsong Young And Free',
+            songSrc: './static/Hillsong Young And Free - Wake.mp3'
+        },
+        {
+            id: 7,
+            name: 'Doin\' What It \'Pose 2Do',
+            author: 'Doin',
+            songSrc: './static/Ice Cube - Doin\' What It \'Pose 2Do (edited version).mp3'
+        },
+        {
+            id: 8,
+            name: 'Shape of You',
+            author: 'J.Fla',
+            songSrc: './static/J.Fla - Shape of You.mp3'
+        },
+        {
+            id: 9,
+            name: 'MKJ - Please Don\'t Go',
+            author: 'Joel Adams',
+            songSrc: './static/Joel Adams - Please Don\'t Go.mp3'
+        },
+        {
+            id: 10,
+            name: 'Stronger',
+            author: 'Kelly Clarkson',
+            songSrc: './static/Kelly Clarkson - Stronger.mp3'
+        },
+
+    ];
+    new Vue({
+        el: '#music',
+        data() {
+            return {
+                musics:musicData,
+                currentIndex:0
+                // musicSrc:'./static/于荣光 - 少林英雄.mp3'
+            }
+        },
+        methods:{
+            clickHandler(index){
+                // alert(index);
+                this.currentIndex = index;
+
+            }
+        },
+        computed:{
+            currentSrc(){
+                // 监听了两个属性 musics  currentIndex
+                return  this.musics[this.currentIndex].songSrc;
+            }
+        },
+        template: ``
+    });
+</script>
+</body>
+
+</html>
